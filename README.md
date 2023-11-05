@@ -8,6 +8,7 @@ Climate Change Analysis
 - Worked with a team to explore dataset of global temperature patterns using pandas and numpy libraries
 - Created visualizations using matplotlib and seaborn libraries, such as correlation plots and heatmaps
 - Presented findings to convey purpose and methods to data science professionals and peers
+  
 DewDrop
 - Created business model for manufacturing company specializing in automated irrigation system designed
 for household plants
