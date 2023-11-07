@@ -30,6 +30,28 @@
     width: 240px;
     height: 192px;
   }
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+  }
+  .project:hover img{
+    opacity: 0.3;
+  }
+  .project:hover .middle{
+    opacity: 1;
+  }
+
+  .text {
+    background-color: #85DCB;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+  }
 </style>
   
 </head>
@@ -53,7 +75,12 @@
     </div>
     <div class="project">
       <h2>Projects</h2>
-      <h3>Predicting Active Physicians in County with Multiple Predictors</h3>
+      <div class="project1">
+        <a href="https://github.com/jmudong/jmudong.github.io/blob/main/Project%20I/Project%201.pdf"><img src="Project I/project_1.png" align="left"></a>
+        <div class="middle">
+          <div class="text">Average Length of Stay at Hospitals Relating to Infection Risk, Available Facilities, and Routine X-ray Ratio</div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
