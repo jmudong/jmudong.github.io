@@ -1,0 +1,88 @@
+---
+title: "STA108 Project I"
+author: "Jasper Dong"
+date: "2023-05-01"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, comment = NA)
+options(scipen = 999) #Remove the scientific notation
+```
+
+```{r, message=FALSE, echo = FALSE}
+library(readr)
+library(MASS)
+library(ggplot2)
+SENIC <- read_csv("SENIC.csv")
+```
+
+```{r, echo=FALSE}
+# removing outliers
+outliers = c(47, 112)
+SENIC = SENIC[-outliers,]
+```
+
+```{r, echo=FALSE}
+##### MODELS #####
+infect.model = lm(length ~ infection, data = SENIC)
+facility.model = lm(length ~ facility, data = SENIC)
+xray.model = lm(length ~ Xray, data = SENIC)
+SENIC$ei1 = infect.model$residuals
+SENIC$yhat1 = infect.model$fitted.values
+```
+
+```{r}
+ # ANOVA tables for each model
+anova(infect.model)
+anova(facility.model)
+anova(xray.model)
+```
+```{r}
+  # Assessing Infection Linearity
+options(scipen = 8)
+reduced.model = lm(length ~ 1, data = SENIC)
+anova.table = anova(reduced.model, infect.model)
+anova.table
+```
+
+
+```{r}
+  # Assessing Infection Independence
+plot(infect.model$residuals, main = "Residual Index plot", xlab = "Index", ylab = "residuals", pch = 19, col = "purple")
+abline(h = 0, lty = 2)
+```
+
+```{r}
+# Confidence Interval for Parameters
+alpha = 0.05
+infect.CIs = confint(infect.model, level = 1-alpha)
+infect.CIs
+```
+```{r}
+ # Shapiro-Wilks Test for Infection Normality
+ei = infect.model$residuals
+infect.SWtest = shapiro.test(ei)
+infect.SWtest
+```
+```{r}
+ # Fligner-Killeen test for Infection Homoscedasticity
+SENIC$ei1 = infect.model$residuals
+Group = rep("Lower",nrow(SENIC)) 
+Group[SENIC$length < median(SENIC$length)] = "Upper" 
+Group = as.factor(Group) 
+SENIC$Group = Group
+infect.FKtest= fligner.test(SENIC$ei1, SENIC$Group)
+infect.FKtest
+```
+
+
+
+
+
+
+# R Appendix
+
+```{r, ref.label=knitr::all_labels(), eval = F, echo = T}
+
+```

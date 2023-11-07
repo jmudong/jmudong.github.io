@@ -1,0 +1,109 @@
+---
+title: "STA Homework Template"
+author: "Amy Kim"
+header-includes:
+   - \usepackage{enumerate,graphicx}
+geometry: margin=0.5in
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, comment = NA)
+options(scipen = 999) #Remove the scientific notation
+```
+
+```{r, message=FALSE}
+#### LOADING IN DATASET ####
+library(readr)
+CDI2 <- read_csv("CDI2.csv")
+```
+
+```{r, fig.align='center'}
+#### SUMMARY ####
+  # Correlation matrix
+library(corrplot)
+round(cor(CDI2),3)
+corrplot(cor(CDI2))
+```
+```{r}
+  # Numerical Summaries
+summary(CDI2)
+lapply(CDI2, sd)
+```
+
+
+```{r}
+#### MODEL COMPARISON & FIT ####
+model_1 = lm(physician ~ population + income + bed, data = CDI2)
+CDI2$pdensity = CDI2$population/CDI2$area
+model_2 = lm(physician ~ pdensity + senior + income, data = CDI2)
+summary(model_1)
+summary(model_2)
+```
+```{r, fig.align='center'}
+#### DIAGNOSTICS ####
+  # Assessing Independence
+plot(model_1$residuals,main = "Residual Index plot",xlab = "Index",ylab = "residuals",pch = 19, col = "purple")
+abline(h = 0, lty = 2)
+```
+```{r, fig.align='center'}
+  # Assessing Normality
+    # Normal Q-Q Plot
+qqnorm(model_1$residuals)
+qqline(model_1$residuals)
+    # Shapiro-Wilks Test
+the.SWtest = shapiro.test(model_1$residuals)
+the.SWtest
+```
+```{r, fig.align='center', warning=FALSE}
+  # Assessing Constant Variance
+    # Plotting Errors vs. Fitted Values
+library(ggplot2)
+CDI2$ei = model_1$residuals
+CDI2$yhat = model_1$fitted.values
+qplot(yhat, ei, data = CDI2) +  ggtitle("Errors vs. Fitted Values") + xlab("Fitted Values") + 
+  ylab("Errors") + geom_hline(yintercept = 0,col = "purple")
+    # Formal Testing
+Group = rep("Lower",nrow(CDI2)) 
+Group[CDI2$physician < median(CDI2$physician)] = "Upper" 
+Group = as.factor(Group) 
+CDI2$Group = Group
+the.FKtest= fligner.test(CDI2$ei, CDI2$Group)
+```
+
+
+
+```{r}
+#### OUTLIERS ####
+  # Leverage
+p = 4
+h = hatvalues(model_1)
+leverage = which(h > (p+1)/n)
+```
+
+```{r}
+  # Studentized Residuals
+sei = rstudent(model_1)
+outliers = which(abs(sei) > 3)
+```
+
+```{r}
+  # Table of outliers and leverage points
+CDI2 <- read_csv("CDI2.csv")
+outlier_table = CDI2[outliers,]
+outlier_table$row = outliers
+leverage_table = CDI2[leverage,]
+leverage_table$row = leverage
+knitr::kable(outlier_table)
+knitr::kable(leverage_table)
+```
+
+
+
+
+
+# R Appendix
+
+```{r, ref.label=knitr::all_labels(), eval = F, echo = T}
+
+```
