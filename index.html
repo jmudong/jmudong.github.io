@@ -34,6 +34,16 @@
     position: relative;
     width: 50%;
   }
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
 </style>
   
 </head>
@@ -57,13 +67,15 @@
     </div>
     <div>
       <h2>Projects</h2>
-      <div>
-        <img src="Project I/project_1.png" align="left">
-        <h3><a href=https://github.com/jmudong/jmudong.github.io/blob/main/Project%20I/Project%201.pdf>Hospital Stay Prediction</a></h3>
-        <ul>
-          <li>Linear Regression</li>
-          <li>Model Diagnostics</li>
-          <li>Interpretation</li>
+      <div class="row">
+        <img class="column" style="vertical-align:middle" src="Project I/project_1.png" align="left">
+        <div class="column">
+          <h3><a href=https://github.com/jmudong/jmudong.github.io/blob/main/Project%20I/Project%201.pdf>Hospital Stay Prediction</a></h3>
+          <ul>
+            <li>Simple Linear Regression</li>
+            <li>Model Diagnostics</li>
+            <li>Interpretation</li>
+        </div>
         </ul>
       </div>
     </div>
