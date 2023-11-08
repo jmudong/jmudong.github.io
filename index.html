@@ -38,11 +38,6 @@
     width: 460px;
     height: 240px;
   }
-  .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
 </style>
   
 </head>
@@ -66,18 +61,22 @@
     </div>
     <div class="project">
       <h2>Projects</h2>
-      <div class="row">
-        <img style="vertical-align:middle" src="Project I/project_1.png" align="left">
-        <div>
-          <h3><a href=https://github.com/jmudong/jmudong.github.io/blob/main/Project%20I/Project%201.pdf>Hospital Stay Prediction</a></h3>
-          <ul>
-            <li>Simple Linear Regression</li>
-            <li>Model Diagnostics</li>
-            <li>Interpretation</li>
-          </ul>
-        </div>
+      <div>
+        <table>
+          <tr>
+            <td><img style="vertical-align:middle" src="Project I/project_1.png" align="left"></td>
+            <td>
+              <h3><a href=https://github.com/jmudong/jmudong.github.io/blob/main/Project%20I/Project%201.pdf>Hospital Stay Prediction</a></h3>
+              <ul>
+                <li>Simple Linear Regression</li>
+                <li>Model Diagnostics</li>
+                <li>Interpretation</li>
+              </ul>
+            </td>
+          </tr>
+         </table>
       </div>
-      <div class="row">
+      <div>
         <img style="vertical-align:middle" src="Project II/image.jpg" align="left">
         <div>
           <h3><a href="https://github.com/jmudong/jmudong.github.io/blob/main/Project%20II/STA108%20Project%202.pdf">Physician Prediction</a></h3>
