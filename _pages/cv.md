@@ -5,6 +5,8 @@ permalink: /resume/
 author_profile: true
 redirect_from:
   - /resume
+redirect_to:
+  - /_pages/resume.pdf
 ---
 
 {% include base_path %}
