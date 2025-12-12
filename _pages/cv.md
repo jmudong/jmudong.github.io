@@ -17,7 +17,7 @@ Education
 Work experience
 ======
 * Present: Statistics Tutor
-  * University of Washington - Davis
+  * University of Washington - Seattle
 
 * 2024-2025: Undergraduate Research Assistant
   * University of California - Davis
