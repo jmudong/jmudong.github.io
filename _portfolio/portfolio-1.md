@@ -6,6 +6,7 @@ collection: portfolio
 
 Clustering of high-dimensional, non-linear data can often yield unstable and inconsistent results, depending on the parameters passed through the chosen algorithm. 
 This project makes a basic attempt to "quantify" this instability by performing a chi-square test on clustering labels between multiple iterations of the algorithm. 
+
 The clustering algorithm in question is the Native Emergent Manifold Interrogation (NEMI) algorithm, which is an extension of UMAP for application on geospatial data, developed
 by my undergraduate advisor Maike Sonnewald. 
 
