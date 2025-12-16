@@ -10,4 +10,4 @@ This project makes a basic attempt to "quantify" this instability by performing 
 The clustering algorithm in question is the Native Emergent Manifold Interrogation (NEMI) algorithm, which is an extension of UMAP for application on geospatial data, developed
 by my undergraduate advisor Maike Sonnewald. 
 
-Slides which summarize my work can be accessed <a href="jmudong.github.io/files/sample1.pdf" target="_blank">here</a>.
+Slides which summarize my work can be accessed <a href="files/sample1.pdf" target="_blank">here</a>.
