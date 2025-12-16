@@ -11,4 +11,10 @@ redirect_to:
 
 {% include base_path %}
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 359f1a7 (Update resume.md)
+=======
+>>>>>>> parent of 359f1a7 (Update resume.md)
