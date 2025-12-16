@@ -1,6 +1,6 @@
 ---
-title: "Portfolio item number 1"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+title: "Hypothesis Testing for high-dimensional, non-linear clustering algorithms"
+excerpt: "A chi-squared test for clustering labels, with applications to oceanography"
 collection: portfolio
 ---
 
