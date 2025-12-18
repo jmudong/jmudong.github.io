@@ -9,7 +9,7 @@ redirect_from:
 
 Hello! My name is Jasper Dong, and I am currently pursuing a M.S. in Statistics at the University of Washington, Seattle. I previously earned my B.S. in Statistics at the University of California, Davis, with a minor in Geographic Information Systems. 
 
-My interests lie mostly in data analytics and data science applications to the social sciences and environmental fields. Recently, I've been more interested in ML/AI modeling, specifically in ML/AI safety and validation. My undergraduate research with Maike Sonnewald in the UC Davis Department of Computer Science was focused on applying concepts from traditional hypothesis testing to modern clustering algorithms, with applications to physical oceanography data. 
+My interests lie mostly in data analytics and data science applications to the social sciences and environmental fields. Recently, I've been more interested in ML/AI modeling, specifically in ML/AI safety and validation. My undergraduate research - done under the mentorship of Maike Sonnewald in the UC Davis Department of Computer Science - was focused on applying concepts from traditional hypothesis testing to modern clustering algorithms, with applications to physical oceanography data. 
 
 __I am currently searching for internships for Summer 2026, specifically in analytics, data science, or ML/AI engineering. Please let me know if you hear of any opportunities!__
 
